@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alma de Anjo • Versículo do Dia</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #f3efe6 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: #fff8e1;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .titulo {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #5a4632;
+    }
+    .versiculo {
+      font-size: 1.2rem;
+      color: #5a4632;
+      margin-bottom: 15px;
+    }
+    .referencia {
+      font-style: italic;
+      color: #8d6e4f;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #8d6e4f;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #6d513a; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="titulo">Amanda Cordeiro • Alma de Anjo</div>
+    <div class="versiculo" id="versiculo"></div>
+    <div class="referencia" id="referencia"></div>
+    <button onclick="mostrarVersiculo()">🔁 Mostrar outro versículo</button>
+  </div>
+  <script>
+    const versiculos = [
+      { texto: 'O Senhor está perto dos que têm o coração quebrantado e salva os de espírito abatido.', ref: 'Salmos 34:18' },
+      { texto: 'Lançando sobre ele toda a vossa ansiedade, porque ele tem cuidado de vós.', ref: '1 Pedro 5:7' },
+      { texto: 'Venham a mim, todos os que estão cansados e sobrecarregados, e eu lhes darei descanso.', ref: 'Mateus 11:28' },
+      { texto: 'Não andem ansiosos por coisa alguma, mas em tudo, pela oração e súplicas, e com ação de graças, apresentem seus pedidos a Deus.', ref: 'Filipenses 4:6' },
+      { texto: 'Em paz me deito e logo adormeço, pois só tu, Senhor, me fazes viver em segurança.', ref: 'Salmos 4:8' },
+      { texto: 'Quando estiverem em angústia e clamarem a mim, eu os ouvirei.', ref: 'Salmos 91:15' },
+      { texto: 'Mesmo quando eu andar por um vale de trevas e morte, não temerei perigo algum, pois tu estás comigo.', ref: 'Salmos 23:4' },
+      { texto: 'O Senhor é a minha luz e a minha salvação; de quem terei medo?', ref: 'Salmos 27:1' },
+      { texto: 'Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus.', ref: 'Isaías 41:10' },
+      { texto: 'Ele cura os que têm o coração quebrantado e trata das suas feridas.', ref: 'Salmos 147:3' },
+      { texto: 'Por que estás abatida, ó minha alma? Espere em Deus, pois ainda o louvarei.', ref: 'Salmos 42:11' },
+      { texto: 'Ainda que meu pai e minha mãe me abandonem, o Senhor me acolherá.', ref: 'Salmos 27:10' },
+      { texto: 'O Senhor teu Deus está no meio de ti, poderoso para salvar. Ele se deleitará em ti com alegria.', ref: 'Sofonias 3:17' },
+      { texto: 'Não se deixem dominar pela ira. Cuidem para não pecar ao ficarem irados.', ref: 'Efésios 4:26' },
+      { texto: 'A resposta branda desvia o furor, mas a palavra dura suscita a ira.', ref: 'Provérbios 15:1' },
+      { texto: 'Tudo posso naquele que me fortalece.', ref: 'Filipenses 4:13' },
+      { texto: 'O choro pode durar uma noite, mas a alegria vem pela manhã.', ref: 'Salmos 30:5' },
+      { texto: 'Porque sou eu que conheço os planos que tenho para vocês, planos de fazê-los prosperar...', ref: 'Jeremias 29:11' },
+      { texto: 'Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia.', ref: 'Salmos 46:1' },
+      { texto: 'Buscai o Senhor e a sua força; buscai continuamente a sua presença.', ref: '1 Crônicas 16:11' },
+      { texto: 'Entrega o teu caminho ao Senhor; confia nele, e o mais ele fará.', ref: 'Salmos 37:5' },
+      { texto: 'Alegrai-vos na esperança, sede pacientes na tribulação, perseverai na oração.', ref: 'Romanos 12:12' },
+      { texto: 'Clama a mim, e responder-te-ei, e anunciar-te-ei coisas grandes e firmes que não sabes.', ref: 'Jeremias 33:3' },
+      { texto: 'Deleita-te também no Senhor, e ele te concederá os desejos do teu coração.', ref: 'Salmos 37:4' },
+      { texto: 'Buscai primeiro o reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas.', ref: 'Mateus 6:33' }
+    ];
+
+    function mostrarVersiculo() {
+      const sorteado = versiculos[Math.floor(Math.random() * versiculos.length)];
+      document.getElementById('versiculo').textContent = `"${sorteado.texto}"`;
+      document.getElementById('referencia').textContent = `— ${sorteado.ref}`;
+    }
+
+    window.onload = mostrarVersiculo;
+  </script>
+</body>
+</html>
